@@ -1,4 +1,4 @@
-name: Run Birthday Script
+name: Birthday
 
 on:
   workflow_dispatch:
