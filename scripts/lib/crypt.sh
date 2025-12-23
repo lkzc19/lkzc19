@@ -44,7 +44,7 @@ key_stream() {
     local stream=""
     local i=0
     
-    while [ ${#stream} -lt $length ]; do
+    while [ $i -lt $length ]; do
         local char=${secret:$((i % ${#secret})):1}
         local index=$(_char_index "$char")
         stream+="$index "

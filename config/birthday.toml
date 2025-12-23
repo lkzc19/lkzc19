@@ -1,10 +1,10 @@
 [meta]
-bark_device_token='g2JztZW29NKsxY22nrXfSZ' # 加密后
+bark_device_token='G2JztZ4AkEujvvcjVU70AA' # 加密后
 
 
 [[birthday]]
 name = "测试"
-lunar = "冬月初四"
+lunar = "冬月初五"
 advance_days = 1
 
 [[birthday]]
