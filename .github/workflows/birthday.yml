@@ -1,0 +1,23 @@
+name: Run Birthday Script
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 10 * * *'
+
+jobs:
+  run-birthday-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Make script executable
+        run: chmod +x scripts/birthday.sh
+      
+      - name: Run birthday script
+        env:
+          LKZC19_SECRET: ${{ secrets.LKZC19_SECRET }}
+          ROLL_APP_ID: ${{ secrets.ROLL_APP_ID }}
+          ROLL_APP_SECRET: ${{ secrets.ROLL_APP_SECRET }}
+        run: ./scripts/birthday.sh
