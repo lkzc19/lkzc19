@@ -1,0 +1,34 @@
+[meta]
+bark_device_token='g2JztZW29NKsxY22nrXfSZ' # 加密后
+
+
+[[birthday]]
+name = "测试"
+lunar = "冬月初四"
+advance_days = 1
+
+[[birthday]]
+name = "ZC"
+lunar = "四月初十"
+advance_days = 1
+
+[[birthday]]
+name = "LT"
+lunar = "四月初十"
+advance_days = 1
+
+[[birthday]]
+name = "MZ"
+lunar = "四月初十"
+advance_days = 1
+
+[[birthday]]
+name = "KY"
+lunar = "四月初十"
+advance_days = 1
+
+[[birthday]]
+name = "SC"
+lunar = "八月廿六"
+advance_days = 3
+
