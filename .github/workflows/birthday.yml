@@ -3,7 +3,7 @@ name: Birthday
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 10 * * *'
+    - cron: '0 2 * * *'  # UTC 时间 2:00，对应北京时间 10:00
 
 jobs:
   run-birthday-script:

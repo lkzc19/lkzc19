@@ -99,8 +99,18 @@ main() {
 date_to_days() {
     local date="$1"
     local format="${2:-%Y-%m-%d}"
-    local target_seconds=$(date -j -f "$format" "$date" +"%s" 2>/dev/null)
-    local epoch_seconds=$(date -j -f "%Y-%m-%d" "1970-01-01" +"%s" 2>/dev/null)
+    
+    # 兼容 macOS 和 Linux
+    if [[ "$(uname)" == "Darwin" ]]; then
+        # macOS 语法
+        local target_seconds=$(date -j -f "$format" "$date" +"%s" 2>/dev/null)
+        local epoch_seconds=$(date -j -f "%Y-%m-%d" "1970-01-01" +"%s" 2>/dev/null)
+    else
+        # Linux 语法
+        local target_seconds=$(date -d "$date" +"%s" 2>/dev/null)
+        local epoch_seconds=$(date -d "1970-01-01" +"%s" 2>/dev/null)
+    fi
+    
     echo $(( (target_seconds - epoch_seconds) / 86400 ))
 }
 
@@ -108,7 +118,15 @@ date_to_days() {
 days_to_date() {
     local days="$1"
     local format="${2:-%Y-%m-%d}"
-    date -j -v+"$days"d -f "%Y-%m-%d" "1970-01-01" +"$format" 2>/dev/null
+    
+    # 兼容 macOS 和 Linux
+    if [[ "$(uname)" == "Darwin" ]]; then
+        # macOS 语法
+        date -j -v+"$days"d -f "%Y-%m-%d" "1970-01-01" +"$format" 2>/dev/null
+    else
+        # Linux 语法
+        date -d "1970-01-01 +$days days" +"$format" 2>/dev/null
+    fi
 }
 
 # 输入日期 yyyy-MM-dd 输出农历日期
