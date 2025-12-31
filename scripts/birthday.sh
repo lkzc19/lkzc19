@@ -55,8 +55,8 @@ main() {
         # 判断 lunar 与 lunar_today 是否相等
         if [ "$lunar" == "$lunar_today" ]; then
             # 进行通知
-            local content="[action] 今日 $today_date 是 $name 的农历生日!"
-            echo "${content}"
+            local content="今日 $today_date 是 $name 的农历生日!"
+            echo "[action] ${content}"
             bark_notify_2 "${bark_device_token}" "生日提醒" "${content}"
             continue
         fi
